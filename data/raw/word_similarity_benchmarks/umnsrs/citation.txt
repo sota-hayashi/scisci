@@ -1,0 +1,15 @@
+UMNSRS-Similarity（566 ペア）/ UMNSRS-Relatedness（587 ペア）
+
+原典（このデータを使うときは必ず引用する）:
+  Pakhomov, S., McInnes, B., Adams, T., Liu, Y., Pedersen, T., & Melton, G. B. (2010).
+  Semantic similarity and relatedness between clinical terms: An experimental study.
+  AMIA Annual Symposium Proceedings, 2010, 572-576.
+  データ: Pakhomov, S. (2018). Semantic Relatedness and Similarity Reference Standards for
+  Medical Terms. University of Minnesota Digital Conservancy. http://hdl.handle.net/11299/196265
+
+入手元:
+  上の Digital Conservancy から UMNSRS_similarity.csv、UMNSRS_relatedness.csv、readme.txt。
+  2026-09-17 取得。csv は名前だけを小文字に変えた。中身は変えていない。
+
+配布条件:
+  CC0 1.0 Universal（同梱の readme.txt に明記）。

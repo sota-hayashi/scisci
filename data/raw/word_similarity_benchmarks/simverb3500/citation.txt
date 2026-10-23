@@ -1,0 +1,14 @@
+SimVerb-3500（3,500 ペア）
+
+原典（このデータを使うときは必ず引用する）:
+  Gerz, D., Vulić, I., Hill, F., Reichart, R., & Korhonen, A. (2016). SimVerb-3500: A large-scale
+  evaluation set of verb similarity. Proceedings of EMNLP 2016, 2173-2182.
+  https://doi.org/10.18653/v1/D16-1235
+
+入手元:
+  Apollo - University of Cambridge Repository, https://doi.org/10.17863/CAM.9391 の
+  simverb-3500-data.zip。2026-10-14 取得。
+  simverb_3500.txt は SimVerb-3500.txt の名前だけを変えたもの。README.txt は同梱の説明。中身は変えていない。
+
+配布条件:
+  Creative Commons Attribution 4.0 International（リポジトリに明記。2026-10-14 確認）。

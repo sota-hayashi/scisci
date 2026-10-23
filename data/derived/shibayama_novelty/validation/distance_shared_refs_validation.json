@@ -1,0 +1,99 @@
+{
+  "embed_model": "en_core_sci_lg-0.5.4",
+  "n_pairs_same_author": 11230,
+  "same_author": {
+    "r": 0.1004,
+    "p": 1.4065727109606724e-26,
+    "n": 11230,
+    "zero_coref_share": 0.7973
+  },
+  "same_author_coref_gt0": {
+    "r": 0.2265,
+    "p": 7.3193018565600585e-28,
+    "n": 2276
+  },
+  "by_title_words": {
+    "1–10": {
+      "r": 0.1031,
+      "p": 4.811949654217004e-09,
+      "n": 3208
+    },
+    "11–13": {
+      "r": 0.107,
+      "p": 0.0011816695976107077,
+      "n": 916
+    },
+    "14–17": {
+      "r": 0.1125,
+      "p": 0.025301623209279023,
+      "n": 395
+    },
+    "18–": {
+      "r": 0.3869,
+      "p": 0.00016527648790617237,
+      "n": 90
+    }
+  },
+  "same_author_r_bootstrap": {
+    "ci95": [
+      0.08520443537261753,
+      0.23053535476369563
+    ],
+    "bootstrap_b": 2000,
+    "n_authors": 744,
+    "unit": "author (aid)"
+  },
+  "random_cross_author": {
+    "r": 0.07,
+    "p": 3.886228597484997e-23,
+    "n": 20000,
+    "zero_coref_share": 0.9919
+  },
+  "shibayama21": {
+    "r": 0.231,
+    "n": 21908,
+    "by_title_words": {
+      "1–10": 0.44,
+      "11–13": 0.246,
+      "14–17": 0.197,
+      "18–": 0.259
+    },
+    "by_title_words_n": {
+      "1–10": 1395,
+      "11–13": 1151,
+      "14–17": 1827,
+      "18–": 1867
+    },
+    "source": "Shibayama, Yin & Matsumoto (2021) PLOS ONE, Table 3 (p.9)"
+  },
+  "params": {
+    "word_bands": [
+      [
+        1,
+        10
+      ],
+      [
+        11,
+        13
+      ],
+      [
+        14,
+        17
+      ],
+      [
+        18,
+        999
+      ]
+    ],
+    "n_random_pairs": 20000,
+    "bootstrap_b": 2000,
+    "seed": 0,
+    "min_band_n": 30
+  },
+  "inputs": {
+    "data/derived/shibayama_novelty/pairs/focal_paper_pairs.parquet": "00ffb2ad86f06a2b",
+    "data/derived/shibayama_novelty/pairs/same_author_paper_pairs.parquet": "30e6a21c3c37fc27",
+    "data/raw/papers.csv": "55fefc20b16cdc36",
+    "data/derived/shibayama_novelty/input/focal_papers.parquet": "ed61a4841e02cea9"
+  }
+}

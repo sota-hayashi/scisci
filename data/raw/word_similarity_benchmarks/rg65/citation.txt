@@ -1,0 +1,16 @@
+RG65（65 ペア）
+
+原典（このデータを使うときは必ず引用する）:
+  Rubenstein, H., & Goodenough, J. B. (1965). Contextual correlates of synonymy.
+  Communications of the ACM, 8(10), 627-633. https://doi.org/10.1145/365628.365657
+  （評定は同論文の Table 1）
+
+入手元:
+  原論文の Table 1 を転記した andrefs/punuy-datasets（GitHub, MIT License）の
+  profiles/rg65/table1.part.json と dataset.json。2026-09-17 取得。
+  rg65_table1.json は table1.part.json の名前だけを変えたもの。中身は変えていない。
+  原論文の表との照合はしていない。
+
+配布条件:
+  データ自体の利用条件は、原論文・転記元のどちらにも書かれていない（2026-10-14 確認）。
+  原著者のクレジット（上の論文）を明記して収録する。

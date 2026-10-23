@@ -1,0 +1,11 @@
+.venv/
+.env
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+.vscode/
+.idea/
+data/cache/scispacy/
+docs/
+STATUS.md
+log.md

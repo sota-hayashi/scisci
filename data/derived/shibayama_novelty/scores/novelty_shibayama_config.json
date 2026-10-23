@@ -1,0 +1,45 @@
+{
+  "reference": "Shibayama, Yin & Matsumoto (2021) PLOS ONE 16:e0254034",
+  "embed_model": "en_core_sci_lg-0.5.4",
+  "text_source": "title",
+  "params": {
+    "q_values": [
+      100,
+      99,
+      95,
+      90,
+      80,
+      50
+    ],
+    "percentile_method": "inverted_cdf",
+    "min_refs": 2,
+    "few_refs_threshold": 10,
+    "high_refs_threshold": 100,
+    "year_bands": [
+      1940,
+      2010,
+      2018,
+      2022,
+      2027
+    ],
+    "min_cell_n": 10
+  },
+  "novelty": {
+    "n_computed": 782,
+    "n_pairs_total": 705512,
+    "skipped_zero_norm": [],
+    "n_few_refs": 111,
+    "n_high_refs": 12,
+    "n_has_nonascii_ref": 4
+  },
+  "ranked": {
+    "n_ranked": 679,
+    "n_cells": 52
+  },
+  "inputs": {
+    "data/derived/shibayama_novelty/input/focal_papers.parquet": "ed61a4841e02cea9",
+    "data/derived/shibayama_novelty/input/reference_titles.parquet": "c0c8c12370ebe2b3",
+    "data/derived/shibayama_novelty/title_vectors/reference_title_index.parquet": "e4265fcf85b73337",
+    "data/derived/shibayama_novelty/title_vectors/reference_title_vectors.npy": "ebb0fcc888711fe2"
+  }
+}

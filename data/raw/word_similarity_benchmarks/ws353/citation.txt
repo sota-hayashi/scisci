@@ -1,0 +1,13 @@
+WordSim-353（353 ペア）
+
+原典（このデータを使うときは必ず引用する）:
+  Finkelstein, L., Gabrilovich, E., Matias, Y., Rivlin, E., Solan, Z., Wolfman, G., & Ruppin, E.
+  (2002). Placing search in context: The concept revisited. ACM Transactions on Information
+  Systems, 20(1), 116-131. https://doi.org/10.1145/503104.503110
+
+入手元:
+  https://gabrilovich.com/resources/data/wordsim353/wordsim353.html の wordsim353.zip から
+  combined.csv と instructions.txt。2026-09-17 取得。中身・名前とも変えていない。
+
+配布条件:
+  Creative Commons Attribution 4.0 International（配布ページに明記。2026-10-14 確認）。

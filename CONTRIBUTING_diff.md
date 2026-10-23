@@ -1,0 +1,109 @@
+# CONTRIBUTING.md の変更点（8 か所）
+
+<span style="color:red"><b>赤い太字</b></span>は足したところ、<span style="color:red"><del>赤い取り消し線</del></span>は消したところ。
+VS Code などのプレビューで色が付く。GitHub では色の指定が消える（太字と取り消し線だけ残る）。
+
+---
+
+# 研究リポジトリの決まり
+
+研究室で共有するリポジトリを作る・編集するときの決まり。人と AI エージェントの両方に適用する。リポジトリごとの事情（本筋の中身、データの利用条件など）は、各リポジトリの `README.md` と `AGENTS.md` に書く。
+
+## 1. 構造
+
+<pre>
+README.md              目的、<span style="color:red"><del>本筋の工程の一覧、</del></span>データの出どころと取得日、再現の手順<span style="color:red"><del>、結果</del></span><span style="color:red"><b>。解析ごとに節を足し、本筋の工程の一覧と結果を書く</b></span>
+CONTRIBUTING.md        このファイル
+AGENTS.md, CLAUDE.md   リポジトリ固有の決まり（AI エージェントも読む）
+reproduce<span style="color:red"><b>_&lt;解析名&gt;</b></span>.ipynb  <span style="color:red"><b>その解析の</b></span>全工程を順に流し直し、出力がコミットされたものと一致するかを確かめる
+requirements.txt       使うライブラリと版
+.env.example           環境変数の名前（値は書かない）
+.gitignore
+src/<span style="color:red"><b>&lt;解析名&gt;/</b></span>           工程のスクリプト。1工程1ファイル
+notebooks/&lt;用途&gt;/       ノートブックで書いた工程
+data/
+  README.md            各表の列の説明
+  raw/                 外から取ってきた元データ（再配布してよいものだけ。手を加えない）
+  cache/               API の保存済み応答（取り直さずに同じ結果を出すため）
+  review/              人が判断した結果（手で編集してよいのはここだけ）
+  derived/<span style="color:red"><del>&lt;グループ&gt;/ </del></span><span style="color:red"><b>&lt;解析名&gt;/&lt;グループ&gt;/</b></span>  各工程の出力。関係する工程ごとにフォルダを分ける
+</pre>
+
+<span style="color:red"><b>- `README.md`、`CONTRIBUTING.md`、`data/raw/`、`data/cache/`、`requirements.txt` は全解析で共有する。`<解析名>` の付くものは解析ごとに持つ。</b></span>
+- 工程には<span style="color:red"><b>解析ごとに</b></span>番号を振り、`README.md` の<span style="color:red"><b>その解析の</b></span>工程の表と <span style="color:red"><del>`reproduce.ipynb`</del></span><span style="color:red"><b>`reproduce_<解析名>.ipynb`</b></span> に同じ順で並べる。
+- 各工程はコミットされたファイルだけを読み、出力を <span style="color:red"><del>`data/derived/<グループ>/`</del></span><span style="color:red"><b>`data/derived/<解析名>/<グループ>/`</b></span> に書く。後の工程の出力を前の工程が読まない。
+- リポジトリに入らない大きな外部データはリポジトリの外に置き、場所は環境変数で渡す。それを使う工程の出力はコミットする。
+- 利用条件で再配布が制限されたデータを含むときは、リポジトリを private にし、`README.md` の冒頭に理由と共有してよい範囲を書く。
+
+## 2. コミットするもの
+
+**そのリポジトリの本筋に直接関係するものだけをコミットする。** 本筋とは、`README.md` に書く結果に至る工程のつながりのこと。<span style="color:red"><del>各リポジトリの `README.md` </del></span><span style="color:red"><b>`README.md` の各解析の節</b></span>に本筋の工程を書いておく。
+
+コミットしてよいのは、本筋の工程そのもの、その工程が読むデータ、`README.md` の数値を出すもの、のどれかに当たるものだけ。動いて役に立つものでも、本筋でなければコミットしない。例:
+
+- 別のテーマの作業
+- 探索、試行、練習
+- 古い版、一度きりの書き出しや図
+- 報告書、スライド、議事録、作業ログ、文献メモ
+- 自分の作業環境のためのスクリプトや設定
+
+これらは各自の手元か個人のリポジトリに置く。
+
+コミットするものは**再現できる**こと。コミットされたファイルから作り直すコードがあり、<span style="color:red"><del>`reproduce.ipynb`</del></span><span style="color:red"><b>`reproduce_<解析名>.ipynb`</b></span> で確かめられること。取り直すと変わるデータや、特別な利用権が要るデータは、出力をコミットし、出どころ・取得日・版を `README.md` に書く。
+
+コミットしてはいけないもの:
+
+- API キー、パスワード、トークン。環境変数から読み、`.env` は `.gitignore` に入れる
+- メールアドレスなどの個人情報。データに含まれる場合は伏せる
+- 利用条件で再配布が禁じられているデータ、他人の著作物の本文（論文の本文・要旨など）
+- 50MB を超えるファイル、仮想環境、キャッシュ、OS やエディタが作るファイル（`.DS_Store` など）
+- ノートブックの実行結果（コミットの前に消す）
+
+工程を足す・変えるときは、`README.md` の<span style="color:red"><b>その解析の</b></span>工程の表と <span style="color:red"><del>`reproduce.ipynb`</del></span><span style="color:red"><b>`reproduce_<解析名>.ipynb`</b></span> に足し、新しい列を `data/README.md` に書き、<span style="color:red"><del>`reproduce.ipynb`</del></span><span style="color:red"><b>`reproduce_<解析名>.ipynb`</b></span> を流す。コードと、変わった出力は一緒にコミットする。
+
+## 3. 命名規則
+
+**ファイル・フォルダ**
+
+- 英小文字・数字・アンダースコア（snake_case）。日本語、空白、大文字は使わない（`README.md` など慣例で大文字のものは除く）
+- 中身が分かる英単語にする。略語は広く通じるもの（`id`、`n`、`doi` など）だけ
+- 日付を入れるときは `YYYY-MM-DD`
+- 版を名前に付けた複製（`_v2`、`_new`、`_final`、`_old`）を作らない。前の版は Git の履歴に残す
+- スクリプトは `<動詞>_<対象>.py`（例: `build_paper_table.py`）、ノートブックは `<対象>_<処理>.ipynb`（例: `imra_com_scrape.ipynb`）
+
+**Python のコード**（PEP 8 に従う）
+
+| 対象 | 書き方 | 例 |
+|---|---|---|
+| 変数、関数、モジュール | snake_case | `n_authors`、`load_papers()` |
+| クラス | PascalCase | `PaperTable` |
+| 定数 | UPPER_SNAKE_CASE | `MAX_RETRIES` |
+
+camelCase は使わない。
+
+**表の列**
+
+- snake_case
+- 真偽は `is_` / `has_`、件数は `n_`、パーセントは `_pct` を付ける
+- 同じ量を複数の出どころから取るときは、出どころを名前に入れる（例: `year_site`、`year_openalex`）。出どころの違う値を同じ列に混ぜない
+- 主キーは `<対象>_id` または `<対象>_uid`
+- 表は CSV（UTF-8）、大きな表は Parquet、要約は JSON
+
+**環境変数**: UPPER_SNAKE_CASE。リポジトリ固有のものにはプロジェクト名を頭に付ける（例: `SCISCI_SEED`）。
+
+**ブランチ**: `<種類>/<内容>` を英小文字とハイフン（kebab-case）で書く（例: `fix/affiliation-parsing`、`add/citation-step`）。
+
+**コミットメッセージ**
+
+- 1コミットには、まとまった1つの変更だけを入れる
+- 件名は1行で `<対象>: <何をしたか>`。日本語でよい（例: `README: 再現の手順を追記`）
+- 件名で伝わるなら本文は書かない（SSIA）。理由や影響の説明が要るときだけ本文を書く。出力が変わったときは、変わった理由を本文に書く
+- プルリクエストも同じ。タイトルで伝わるなら説明は「SSIA」だけでよい
+
+**コード全般**
+
+- スクリプトはリポジトリの一番上のフォルダから流す
+- `data/derived/` の下のファイルを手で直さない。スクリプトを直して流し直す
+- 使うライブラリは版を固定して `requirements.txt` に書く
+- コメントは日本語でも英語でもよいが、1つのリポジトリの中で揃える
+- 標準ライブラリと pandas 以外のライブラリで込み入った処理をするときは、短いコメントで説明する

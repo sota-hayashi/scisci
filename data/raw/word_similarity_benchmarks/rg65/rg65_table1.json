@@ -1,0 +1,327 @@
+[
+  {
+    "term1": "cord",
+    "term2": "smile",
+    "value": 0.02
+  },
+  {
+    "term1": "rooster",
+    "term2": "voyage",
+    "value": 0.04
+  },
+  {
+    "term1": "noon",
+    "term2": "string",
+    "value": 0.04
+  },
+  {
+    "term1": "fruit",
+    "term2": "furnace",
+    "value": 0.05
+  },
+  {
+    "term1": "autograph",
+    "term2": "shore",
+    "value": 0.06
+  },
+  {
+    "term1": "automobile",
+    "term2": "wizard",
+    "value": 0.11
+  },
+  {
+    "term1": "mound",
+    "term2": "stove",
+    "value": 0.14
+  },
+  {
+    "term1": "grin",
+    "term2": "implement",
+    "value": 0.18
+  },
+  {
+    "term1": "asylum",
+    "term2": "fruit",
+    "value": 0.19
+  },
+  {
+    "term1": "asylum",
+    "term2": "monk",
+    "value": 0.39
+  },
+  {
+    "term1": "graveyard",
+    "term2": "madhouse",
+    "value": 0.42
+  },
+  {
+    "term1": "glass",
+    "term2": "magician",
+    "value": 0.44
+  },
+  {
+    "term1": "boy",
+    "term2": "rooster",
+    "value": 0.44
+  },
+  {
+    "term1": "cushion",
+    "term2": "jewel",
+    "value": 0.45
+  },
+  {
+    "term1": "monk",
+    "term2": "slave",
+    "value": 0.57
+  },
+  {
+    "term1": "asylum",
+    "term2": "cemetery",
+    "value": 0.79
+  },
+  {
+    "term1": "coast",
+    "term2": "forest",
+    "value": 0.85
+  },
+  {
+    "term1": "grin",
+    "term2": "lad",
+    "value": 0.88
+  },
+  {
+    "term1": "shore",
+    "term2": "woodland",
+    "value": 0.9
+  },
+  {
+    "term1": "monk",
+    "term2": "oracle",
+    "value": 0.91
+  },
+  {
+    "term1": "boy",
+    "term2": "sage",
+    "value": 0.96
+  },
+  {
+    "term1": "automobile",
+    "term2": "cushion",
+    "value": 0.97
+  },
+  {
+    "term1": "mound",
+    "term2": "shore",
+    "value": 0.97
+  },
+  {
+    "term1": "lad",
+    "term2": "wizard",
+    "value": 0.99
+  },
+  {
+    "term1": "forest",
+    "term2": "graveyard",
+    "value": 1.0
+  },
+  {
+    "term1": "food",
+    "term2": "rooster",
+    "value": 1.09
+  },
+  {
+    "term1": "cemetery",
+    "term2": "woodland",
+    "value": 1.18
+  },
+  {
+    "term1": "shore",
+    "term2": "voyage",
+    "value": 1.22
+  },
+  {
+    "term1": "bird",
+    "term2": "woodland",
+    "value": 1.24
+  },
+  {
+    "term1": "coast",
+    "term2": "hill",
+    "value": 1.26
+  },
+  {
+    "term1": "furnace",
+    "term2": "implement",
+    "value": 1.37
+  },
+  {
+    "term1": "crane",
+    "term2": "rooster",
+    "value": 1.41
+  },
+  {
+    "term1": "hill",
+    "term2": "woodland",
+    "value": 1.48
+  },
+  {
+    "term1": "car",
+    "term2": "journey",
+    "value": 1.55
+  },
+  {
+    "term1": "cemetery",
+    "term2": "mound",
+    "value": 1.69
+  },
+  {
+    "term1": "glass",
+    "term2": "jewel",
+    "value": 1.78
+  },
+  {
+    "term1": "magician",
+    "term2": "oracle",
+    "value": 1.82
+  },
+  {
+    "term1": "crane",
+    "term2": "implement",
+    "value": 2.37
+  },
+  {
+    "term1": "brother",
+    "term2": "lad",
+    "value": 2.41
+  },
+  {
+    "term1": "sage",
+    "term2": "wizard",
+    "value": 2.46
+  },
+  {
+    "term1": "oracle",
+    "term2": "sage",
+    "value": 2.61
+  },
+  {
+    "term1": "bird",
+    "term2": "crane",
+    "value": 2.63
+  },
+  {
+    "term1": "bird",
+    "term2": "cock",
+    "value": 2.63
+  },
+  {
+    "term1": "food",
+    "term2": "fruit",
+    "value": 2.69
+  },
+  {
+    "term1": "brother",
+    "term2": "monk",
+    "value": 2.74
+  },
+  {
+    "term1": "asylum",
+    "term2": "madhouse",
+    "value": 3.04
+  },
+  {
+    "term1": "furnace",
+    "term2": "stove",
+    "value": 3.11
+  },
+  {
+    "term1": "magician",
+    "term2": "wizard",
+    "value": 3.21
+  },
+  {
+    "term1": "hill",
+    "term2": "mound",
+    "value": 3.29
+  },
+  {
+    "term1": "cord",
+    "term2": "string",
+    "value": 3.41
+  },
+  {
+    "term1": "glass",
+    "term2": "tumbler",
+    "value": 3.45
+  },
+  {
+    "term1": "grin",
+    "term2": "smile",
+    "value": 3.46
+  },
+  {
+    "term1": "serf",
+    "term2": "slave",
+    "value": 3.46
+  },
+  {
+    "term1": "journey",
+    "term2": "voyage",
+    "value": 3.58
+  },
+  {
+    "term1": "autograph",
+    "term2": "signature",
+    "value": 3.59
+  },
+  {
+    "term1": "coast",
+    "term2": "shore",
+    "value": 3.6
+  },
+  {
+    "term1": "forest",
+    "term2": "woodland",
+    "value": 3.65
+  },
+  {
+    "term1": "implement",
+    "term2": "tool",
+    "value": 3.66
+  },
+  {
+    "term1": "cock",
+    "term2": "rooster",
+    "value": 3.68
+  },
+  {
+    "term1": "boy",
+    "term2": "lad",
+    "value": 3.82
+  },
+  {
+    "term1": "cushion",
+    "term2": "pillow",
+    "value": 3.84
+  },
+  {
+    "term1": "cemetery",
+    "term2": "graveyard",
+    "value": 3.88
+  },
+  {
+    "term1": "automobile",
+    "term2": "car",
+    "value": 3.92
+  },
+  {
+    "term1": "midday",
+    "term2": "noon",
+    "value": 3.94
+  },
+  {
+    "term1": "gem",
+    "term2": "jewel",
+    "value": 3.94
+  }
+]

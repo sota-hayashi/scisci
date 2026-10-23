@@ -1,0 +1,14 @@
+SimLex-999（999 ペア）
+
+原典（このデータを使うときは必ず引用する。配布元の README も引用を求めている）:
+  Hill, F., Reichart, R., & Korhonen, A. (2015). SimLex-999: Evaluating semantic models
+  with (genuine) similarity estimation. Computational Linguistics, 41(4), 665-695.
+  https://doi.org/10.1162/COLI_a_00237
+
+入手元:
+  https://fh295.github.io/simlex.html の SimLex-999.zip。2026-09-17 取得。
+  simlex_999.txt は SimLex-999.txt の名前だけを変えたもの。README.txt は同梱の説明。中身は変えていない。
+
+配布条件:
+  配布ページ・同梱 README とも「使うなら論文を引用すること」とあるだけで、
+  ライセンスの記載は無い（2026-10-14 確認）。原著者のクレジット（上の論文）を明記して収録する。

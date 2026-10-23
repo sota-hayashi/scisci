@@ -1,0 +1,30 @@
+{
+  "focal_chain": {
+    "papers_all": 917,
+    "is_work_primary": 912,
+    "matched": 852,
+    "referenced_works_count_gt0": 790
+  },
+  "refs_rows_raw": 27247,
+  "refs_dropped_no_title": 1440,
+  "title_coverage_overall": 0.9472,
+  "refs_dropped_dup_title": 212,
+  "refs_nonascii_high": 6,
+  "focal_dropped_lt2_refs": 8,
+  "focal_dropped_lt2_by_org": {
+    "AISIN IMRA(米国・imra.com)": 7,
+    "トヨタ自動車未来創成センター": 1
+  },
+  "n_focal_computable": 782,
+  "refs_rows_used": 25587,
+  "n_unique_titles": 20317,
+  "params": {
+    "min_refs": 2,
+    "nonascii_threshold": 0.2,
+    "dedup_by": "normalized_title"
+  },
+  "inputs": {
+    "data/raw/papers.csv": "55fefc20b16cdc36",
+    "data/raw/paper_references.csv": "2fdfa7756971e649"
+  }
+}

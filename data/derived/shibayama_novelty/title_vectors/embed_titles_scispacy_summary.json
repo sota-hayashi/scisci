@@ -1,0 +1,26 @@
+{
+  "model": "en_core_sci_lg-0.5.4",
+  "dim": 200,
+  "n_vectors_in_table": 600000,
+  "refs": {
+    "n_titles": 20317,
+    "mean_oov_rate": 0.0207,
+    "n_zero_norm": 10
+  },
+  "focal": {
+    "n_papers": 782,
+    "n_titled": 782,
+    "mean_oov_rate": 0.0245,
+    "n_zero_norm": 0
+  },
+  "params": {
+    "token_pattern": "[A-Za-z0-9]+(?:[-'][A-Za-z0-9]+)*",
+    "lookup": "surface form, then lowercase",
+    "pooling": "unweighted mean of in-vocabulary words",
+    "stopwords_removed": false
+  },
+  "inputs": {
+    "data/derived/shibayama_novelty/input/reference_titles.parquet": "c0c8c12370ebe2b3",
+    "data/derived/shibayama_novelty/input/focal_papers.parquet": "ed61a4841e02cea9"
+  }
+}

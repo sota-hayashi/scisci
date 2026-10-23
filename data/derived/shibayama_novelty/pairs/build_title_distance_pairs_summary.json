@@ -1,0 +1,45 @@
+{
+  "checks": {
+    "novel_q_recomputed": {
+      "n_papers_checked": 782,
+      "n_saved": 782,
+      "n_mismatch": 0
+    }
+  },
+  "reference_title_pairs": {
+    "n_rows": 705954,
+    "n_rows_expected": 705954,
+    "n_papers": 782,
+    "n_nan": 442
+  },
+  "focal_paper_pairs": {
+    "n_papers": 782,
+    "n_rows": 305371,
+    "n_same_author": 11230,
+    "n_same_author_rows": 16118,
+    "n_authors_in_pairs": 744,
+    "n_zero_norm_papers": 0
+  },
+  "params": {
+    "q_values": [
+      100,
+      99,
+      95,
+      90,
+      80,
+      50
+    ],
+    "author_id": "orcid, else name_key"
+  },
+  "inputs": {
+    "data/derived/shibayama_novelty/input/focal_papers.parquet": "ed61a4841e02cea9",
+    "data/derived/shibayama_novelty/input/reference_titles.parquet": "c0c8c12370ebe2b3",
+    "data/derived/shibayama_novelty/title_vectors/reference_title_index.parquet": "e4265fcf85b73337",
+    "data/derived/shibayama_novelty/title_vectors/reference_title_vectors.npy": "ebb0fcc888711fe2",
+    "data/derived/shibayama_novelty/title_vectors/focal_title_index.parquet": "7a0b6f00aeec5d5b",
+    "data/derived/shibayama_novelty/title_vectors/focal_title_vectors.npy": "2b1c676bc64c3388",
+    "data/derived/shibayama_novelty/scores/novelty_shibayama.parquet": "cdf1f3947deb9891",
+    "data/raw/paper_references.csv": "2fdfa7756971e649",
+    "data/raw/authorships.csv": "85125816e1ec4c8d"
+  }
+}

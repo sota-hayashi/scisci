@@ -1,0 +1,54 @@
+{
+  "id": "rg65",
+  "metadata": {
+    "name": "Rubenstein and Goodenough (1965)",
+    "authors": "Herbert Rubenstein and John B. Goodenough",
+    "urls": ["https://dl.acm.org/doi/pdf/10.1145/365628.365657"],
+    "papers": [
+      {
+        "title": " Contextual Correlates of Synonymy",
+        "url": "https://dl.acm.org/doi/pdf/10.1145/365628.365657"
+      }
+    ],
+    "date": "1965",
+    "description": "",
+    "downloadUrls": ["https://dl.acm.org/doi/pdf/10.1145/365628.365657"],
+    "languages": ["en"],
+    "domain": "general",
+    "relationTypes": ["similarity"]
+  },
+  "partitions": [
+    {
+      "id": "table1",
+      "relationType": "similarity",
+      "scale": {
+        "value": {
+          "min": 0.0,
+          "max": 4.0
+        }
+      },
+      "metrics": {
+        "annotators": {
+          "total": 51,
+          "minEachPair": 51
+        },
+        "interAnnoAgreement": [
+          {
+            "metric": "pearson",
+            "value": 0.99,
+            "method": "other",
+            "description": "A second group of 36 subjects (Group II) front the same general population as Group participated only in the second session but gave judgments on all 65 pairs. Accordingly for each of the 65 pairs of words judged by both groups of subjects in the second session a mean judgment was calculated for Groups I and iI independently. The correlation between these two sets of means came to r=.99."
+          }
+        ],
+        "intraAnnoAgreement": [
+          {
+            "metric": "pearson",
+            "value": 0.85,
+            "method": "other"
+          }
+        ]
+      }
+    }
+  ],
+  "originalInstructions": "1. After looking through the whole deck, order the pairs according to amount of \"similarity of meaning\" so that the slip containing the pair exhibiting the greatest amount, of \"similarity of meaning\" is at the top of the deck and the pair exhibiting the least amount is on bottom.\n2. Assign a value from 4.0-0.0 to each pair -- the greater the \"similariby of meaning\", the higher the number. You may assign the same value to more than one pair.\n"
+}

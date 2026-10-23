@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import pptx; print\\('python-pptx', pptx.__version__\\)\")",
+      "Bash(python3 -m pip install python-pptx --quiet)",
+      "Bash(python3 -c \"import pptx; print\\('OK', pptx.__version__\\)\")",
+      "Bash(mkdir -p /private/tmp/claude-501/-Users-sota-Projects-scisci/d4f39f81-9794-4349-811b-82fedee1fcd6/scratchpad)",
+      "Bash(curl -s -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0 Safari/537.36\" \"https://www.tytlabs.co.jp/ja/technology/papers.html\" -o papers.html -w \"HTTP %{http_code}  size=%{size_download}\\\\n\")",
+      "Bash(grep -oiE '\\(fetch\\\\\\(|XMLHttpRequest|\\\\$\\\\.ajax|\\\\$\\\\.getJSON|axios\\)' papers.html)",
+      "Bash(python3 -)",
+      "Bash(curl -s \"https://api.openalex.org/institutions?search=toyota&per-page=15\")",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s \"https://api.openalex.org/authors?filter=affiliations.institution.id:I4210137853&per-page=3\")",
+      "Bash(curl -s \"https://api.openalex.org/authors?filter=last_known_institutions.id:I4210137853&per-page=1\")",
+      "Bash(curl -s \"https://api.openalex.org/institutions/I4210137853\")",
+      "Bash(curl -s \"https://api.openalex.org/institutions?filter=lineage:I4210125472&per-page=50\")",
+      "Bash(curl -s \"https://api.openalex.org/institutions?search=toyota%20central\")",
+      "Bash(python3 -c \"import requests\")",
+      "Bash(/Users/sota/Projects/scisci/.venv/bin/python --version)",
+      "Bash(/Users/sota/Projects/scisci/.venv/bin/python -c \"import requests, pandas; print\\('requests+pandas OK'\\)\")",
+      "Bash(.venv/bin/python *)",
+      "WebFetch(domain:api.openalex.org)",
+      "WebSearch",
+      "WebFetch(domain:api.ror.org)",
+      "Bash(python3 *)",
+      "Bash(curl -s 'https://api.openalex.org/works?filter=authorships.institutions.lineage:I4210137853,publication_year:2015&per-page=1&__TRACKED_VAR__')"
+    ]
+  }
+}

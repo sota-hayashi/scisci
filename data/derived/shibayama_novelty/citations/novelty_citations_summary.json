@@ -1,0 +1,93 @@
+{
+  "sample_chain": {
+    "computed": 782,
+    "with_cited_by_and_year": 782
+  },
+  "spearman_novel_100_cited_by": {
+    "all": {
+      "n": 782,
+      "rho": 0.026989002320536644,
+      "p": 0.4510548788107114
+    },
+    "before_2016": {
+      "n": 211,
+      "rho": 0.3481673320139692,
+      "p": 2.0950078062491265e-07
+    },
+    "from_2016": {
+      "n": 571,
+      "rho": 0.14702641042829248,
+      "p": 0.00042386795627560197
+    }
+  },
+  "cited_by": {
+    "median": 10.0,
+    "max": 898,
+    "n_zero": 79
+  },
+  "year_range": [
+    1988,
+    2026
+  ],
+  "median_by_novel_100_decile": [
+    {
+      "novel_100": 0.3968,
+      "cited_by": 6.0,
+      "n": 79
+    },
+    {
+      "novel_100": 0.6269,
+      "cited_by": 10.5,
+      "n": 78
+    },
+    {
+      "novel_100": 0.7764,
+      "cited_by": 13.5,
+      "n": 78
+    },
+    {
+      "novel_100": 0.8337,
+      "cited_by": 11.5,
+      "n": 78
+    },
+    {
+      "novel_100": 0.8756,
+      "cited_by": 10.0,
+      "n": 78
+    },
+    {
+      "novel_100": 0.9087,
+      "cited_by": 10.5,
+      "n": 78
+    },
+    {
+      "novel_100": 0.9421,
+      "cited_by": 11.0,
+      "n": 78
+    },
+    {
+      "novel_100": 0.973,
+      "cited_by": 10.5,
+      "n": 78
+    },
+    {
+      "novel_100": 1.0161,
+      "cited_by": 10.5,
+      "n": 78
+    },
+    {
+      "novel_100": 1.0633,
+      "cited_by": 9.0,
+      "n": 79
+    }
+  ],
+  "params": {
+    "n_bins": 10,
+    "symlog_linthresh": 1,
+    "filters": "none (all years, all document types)"
+  },
+  "inputs": {
+    "data/derived/shibayama_novelty/scores/novelty_shibayama.parquet": "cdf1f3947deb9891",
+    "data/raw/papers.csv": "55fefc20b16cdc36"
+  }
+}
