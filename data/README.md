@@ -3,13 +3,14 @@
 | フォルダ | 中身 | 作る工程 |
 |---|---|---|
 | `raw/` | 論文・著者・参考文献の3表。中身を手で編集しない | —（別の作業リポジトリの出力を写したもの） |
+| `raw/sciscinet_metrics.csv` | SciSciNet v2 の論文ごとの指標（Uzzi らの新規性・定石らしさ、disruption など）。中身を手で編集しない | —（伊倉さんのリポジトリの出力を写したもの。出どころは `src/shibayama_novelty/README.md` の「データの出どころ」） |
 | `raw/word_similarity_benchmarks/` | 単語ペアのベンチマーク6種（RG65、WS353、SimLex-999、SimVerb-3500、UMNSRS 2種）。配布元のファイルのまま。各フォルダの `citation.txt` に原典・入手元・配布条件 | —（入手元は `src/shibayama_novelty/README.md` の「データの出どころ」） |
 | `cache/scispacy/` | scispaCy の語ベクトル表（`vocab/` と `meta.json`）。約600MB のためコミットしない（`.gitignore` 済み） | shibayama_novelty の工程2 `embed_titles_scispacy.py` が初回に配布元から落とす |
 | `derived/shibayama_novelty/input/` | 焦点論文と、整形した参考文献 | shibayama_novelty の工程1 `clean_reference_titles.py` |
 | `derived/shibayama_novelty/title_vectors/` | タイトルのベクトル | shibayama_novelty の工程2 `embed_titles_scispacy.py` |
 | `derived/shibayama_novelty/scores/` | `Novel_q`（主な成果物） | shibayama_novelty の工程3 `compute_shibayama_novelty.py` |
 | `derived/shibayama_novelty/pairs/` | 検証用のペア距離 | shibayama_novelty の工程4 `build_title_distance_pairs.py` |
-| `derived/shibayama_novelty/validation/` | 検証の結果と図 | shibayama_novelty の工程5 `validate_word_vectors.py`、6 `validate_distance_shared_refs.py`、7 `validate_distance_field_labels.py`、8 `plot_novelty_distributions.py`、9 `validate_novelty_citations.py` |
+| `derived/shibayama_novelty/validation/` | 検証の結果と図 | shibayama_novelty の工程5 `validate_word_vectors.py`、6 `validate_distance_shared_refs.py`、7 `validate_distance_field_labels.py`、8 `plot_novelty_distributions.py`、9 `validate_novelty_citations.py`、13 `compare_novelty_sciscinet.py` |
 | `derived/shibayama_novelty/citations/` | 被引用の百分位（`citation_percentiles.csv`、2026-10-01 取得、工程9が読む）、`Novel_100` と被引用数の関係の要約（`novelty_citations_summary.json`）と図（`figs/`）、log(1+被引用数) の回帰（`novelty_citation_regression.json`）、被引用数の分布（`novelty_citation_distribution.json`） | shibayama_novelty の工程10 `plot_novelty_citations.py`、11 `regress_citations_on_novelty.py`、12 `plot_citation_distribution.py`（百分位の表は `fetch_citation_percentiles.py`。工程に入れない） |
 
 各工程の JSON（`*_summary.json`、`*_config.json`、`validation/*.json`）には、件数、定数（`params`）、入力ファイルのハッシュ（`inputs`）が入っている。
@@ -116,6 +117,23 @@
 ---
 
 ---
+
+## sciscinet_metrics.csv（852行 × 20列）
+
+1行 = `papers.csv` の論文1本（`is_work_primary` で `work_id` がある論文）。SciSciNet v2 に無い論文は `ss_*` が欠損。`ss_` の付く列は SciSciNet の値で、OpenAlex 由来の列（`year_openalex` など）と混ぜない。
+
+| 列 | 中身 |
+|---|---|
+| `paper_uid` | 主キー（`papers.csv` と同じ） |
+| `paperid` | OpenAlex の work ID（`W...`）。SciSciNet v2 との結合キー |
+| `source_org`、`year_openalex`、`type` | `papers.csv` から写した列 |
+| `ss_year`、`ss_doctype`、`ss_is_retracted` | SciSciNet の出版年・文献種別・撤回の有無 |
+| `ss_reference_count`、`ss_citation_count`、`ss_c5`、`ss_c10` | SciSciNet の参考文献数・被引用数・5年 / 10年の被引用数 |
+| `ss_novelty` | Uzzi ら（2013）の新規性（SciSciNet の `Atyp_10pct_Z`）。参考文献の学術誌の組み合わせの z 値の10パーセンタイル。**小さい（負の）ほどめずらしい組み合わせを含む = 新しい** |
+| `ss_conventionality` | Uzzi らの定石らしさ（`Atyp_Median_Z`）。z 値の中央値。大きいほど定石どおり |
+| `ss_atyp_pairs` | z 値の計算に使った学術誌のペアの数 |
+| `ss_disruption` | disruption（CD 指数）。−1〜1、正ほど既存の研究の流れを断ち切る |
+| `ss_sleeping_beauty`、`ss_team_size`、`ss_institution_count`、`ss_patent_count` | SciSciNet のその他の指標 |
 
 # derived/shibayama_novelty/
 

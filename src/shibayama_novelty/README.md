@@ -11,6 +11,7 @@
 | `data/raw/papers.csv` | トヨタ関連4サイト（トヨタ自動車未来創成センター、豊田中央研究所、AISIN IMRA 日本・米国）の論文一覧を OpenAlex に対応づけたもの | 取得日は未記入（ファイルの作成日は 2026-09-10）<!-- TODO: 取得日を確かめて書く --> |
 | `data/raw/authorships.csv` | 上の論文の著者。OpenAlex を基に Crossref・Scopus で所属と ORCID を補ったもの | ファイルの作成日 2026-09-10 <!-- TODO: 取得日 --> |
 | `data/raw/paper_references.csv` | 上の論文の参考文献（OpenAlex の `referenced_works` とそのタイトル） | ファイルの作成日 2026-09-10 <!-- TODO: 取得日 --> |
+| `data/raw/sciscinet_metrics.csv` | 伊倉さんのリポジトリ（`ryosuke0828/sci-sci-toyota`）の `data/derived/papers/sciscinet_metrics.csv` を写したもの。SciSciNet v2（`sciscinet_papers.parquet`）から、`papers.csv` の論文の指標を OpenAlex の `work_id` で引いた表（852行）。Lin, Z., Yin, Y., Liu, L., & Wang, D. (2023). SciSciNet: A large-scale open data lake for the science of science research. *Scientific Data*, 10, 315. doi:10.1038/s41597-023-02198-9。v2 の配布ページに利用条件の記載はなく、この論文の引用を求めている（v1 は CC0）。**使った結果を報告するときは、この論文を引用する** | 伊倉さんの log の 2026-09-14 に出力の記録。写したのは 2026-10-30（伊倉さんのリポジトリの 10/21 の版） |
 | `data/derived/shibayama_novelty/citations/citation_percentiles.csv` | 被引用が上位1%・上位10% に入るか。OpenAlex Works API の `citation_normalized_percentile`。取ったコードは `src/shibayama_novelty/fetch_citation_percentiles.py`（工程には入れない） | 2026-10-01 取得。工程9はこの値を使う |
 | scispaCy `en_core_sci_lg` 0.5.4 | Neumann, M., King, D., Beltagy, I., & Ammar, W. (2019). ScispaCy: Fast and robust models for biomedical natural language processing. *BioNLP 2019*, 319–327. doi:10.18653/v1/W19-5034。配布物 https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.4/en_core_sci_lg-0.5.4.tar.gz （CC BY-SA 3.0）。約600MB のため**コミットしない**。shibayama_novelty の工程2が初回に落とし、`vocab/` と `meta.json` を `data/cache/scispacy/`（`.gitignore` 済み）に解凍する | 0.5.4（配布元の最終更新 2024-03-06、2026-10-14 確認） |
 
@@ -86,13 +87,14 @@ python3.13 -m venv .venv
 | 10 | `src/shibayama_novelty/plot_novelty_citations.py` | 被引用の回帰の改良に向けて、出版年・文献種別で絞らずに `Novel_100` と被引用数の関係を図にする（独自） | `citations/` |
 | 11 | `src/shibayama_novelty/regress_citations_on_novelty.py` | log(1+被引用数) を `Novel_q` で OLS 回帰し、出版年・組織・log(参考文献数)・文献種別を統制した6つのモデルを当てる（HC3 の標準誤差。統制変数の選び方は独自） | `citations/` |
 | 12 | `src/shibayama_novelty/plot_citation_distribution.py` | 工程11 の目的変数（被引用数）の分布を数値と図で示し、そのままと log(1+被引用数) で回帰の残差を比べる（独自） | `citations/` |
+| 13 | `src/shibayama_novelty/compare_novelty_sciscinet.py` | 妥当性の確認: `Novel_q` と SciSciNet の Uzzi らの新規性・定石らしさ・disruption の Spearman ρ。参考文献数を除かない場合と除いた場合、さらに分野・出版年・組織も除いた場合（偏相関）。比べ方は独自 | `validation/` |
 
 主な成果物は `data/derived/shibayama_novelty/scores/novelty_shibayama.parquet`（782行、論文1本で1行）。列の説明は `data/README.md`。
 
 ### 再現
 
 ```sh
-for s in clean_reference_titles embed_titles_scispacy compute_shibayama_novelty build_title_distance_pairs validate_word_vectors validate_distance_shared_refs validate_distance_field_labels plot_novelty_distributions validate_novelty_citations plot_novelty_citations regress_citations_on_novelty plot_citation_distribution; do
+for s in clean_reference_titles embed_titles_scispacy compute_shibayama_novelty build_title_distance_pairs validate_word_vectors validate_distance_shared_refs validate_distance_field_labels plot_novelty_distributions validate_novelty_citations plot_novelty_citations regress_citations_on_novelty plot_citation_distribution compare_novelty_sciscinet; do
   .venv/bin/python src/shibayama_novelty/$s.py
 done
 ```
