@@ -12,6 +12,11 @@
 | `derived/shibayama_novelty/pairs/` | 検証用のペア距離 | shibayama_novelty の工程4 `build_title_distance_pairs.py` |
 | `derived/shibayama_novelty/validation/` | 検証の結果と図 | shibayama_novelty の工程5 `validate_word_vectors.py`、6 `validate_distance_shared_refs.py`、7 `validate_distance_field_labels.py`、8 `plot_novelty_distributions.py`、9 `validate_novelty_citations.py`、13 `compare_novelty_sciscinet.py` |
 | `derived/shibayama_novelty/citations/` | 被引用の百分位（`citation_percentiles.csv`、2026-10-01 取得、工程9が読む）、`Novel_100` と被引用数の関係の要約（`novelty_citations_summary.json`）と図（`figs/`）、log(1+被引用数) の回帰（`novelty_citation_regression.json`）、被引用数の分布（`novelty_citation_distribution.json`） | shibayama_novelty の工程10 `plot_novelty_citations.py`、11 `regress_citations_on_novelty.py`、12 `plot_citation_distribution.py`（百分位の表は `fetch_citation_percentiles.py`。工程に入れない） |
+| `derived/coauthor_network/authors/` | 著者の区別（`author_ids.parquet`、`authorships.csv` と同じ行数）と所属の3値 | coauthor_network の工程1 `identify_authors.py` |
+| `derived/coauthor_network/team/` | 論文ごとのくり返しの組の割合・既知のメンバーの割合（`team_familiarity.parquet`、917行） | coauthor_network の工程2 `compute_team_familiarity.py` |
+| `derived/coauthor_network/regression/` | Novelty とくり返しの組の割合・既知のメンバーの割合の回帰（`novelty_familiarity_regression.json`） | coauthor_network の工程3 `regress_novelty_on_familiarity.py` |
+| `cache/orcid/` | ORCID の公開記録の名前の項目（1 ORCID 1ファイル、2026-11-05 取得） | `src/coauthor_network/check_orcid_names.py`（工程に入れない） |
+| `review/orcid_name_mismatches.csv` | ORCID と名前が合わない行と、人の判断（`is_wrong_orcid`、`note`）。手で編集してよい | 同上が書き出し、人が判断を書く |
 
 各工程の JSON（`*_summary.json`、`*_config.json`、`validation/*.json`）には、件数、定数（`params`）、入力ファイルのハッシュ（`inputs`）が入っている。
 
@@ -250,3 +255,35 @@ NULL は71件で、内訳は `work_id` なし60件と、OpenAlex 側に値がな
 | `work_id` | 93% | 852 | `papers.csv` の同名の列（OpenAlex の work） |
 | `is_in_top_1_percent` | 92% | 2 | 被引用が上位1%に入るか。**同じ出版年・同じ `primary_subfield`・同じ `type` の中での順位**。True は30件 |
 | `is_in_top_10_percent` | 92% | 2 | 同、上位10%。True は211件 |
+
+---
+
+# derived/coauthor_network/
+
+## authors/author_ids.parquet（4,448行）
+
+1行 = `raw/authorships.csv` の1行（論文1本の著者1人）。
+
+| 列 | 中身 |
+|---|---|
+| `paper_uid`、`author_seq` | 主キー（`authorships.csv` と同じ） |
+| `author_id` | 著者の区別（`姓|名の頭文字|名の最初の語`、同姓同名で ORCID が別なら末尾に ORCID）。誰か決められない行は欠損 |
+| `affil_label` | その論文での所属。`toyota`（`is_toyota` が True）/ `external`（所属の文字列がある）/ `unknown`（所属の文字列がすべて空） |
+| `orcid_used` | 区別に使った ORCID（`review/orcid_name_mismatches.csv` で誤りとした行は欠損） |
+
+## team/team_familiarity.parquet（917行）
+
+1行 = `raw/papers.csv` の論文1本。列名の末尾が版を表す: `_all`（社外の共著者も含めた全著者）、`_toyota`（その論文でトヨタ側の所属の著者だけ）。どちらも「以前の共著」の記録は4組織をまたぐ。`_all_org`、`_toyota_org` は同じメンバーで、記録を同じ組織の論文だけにした値。チームが2人未満なら指標は欠損。
+
+| 列 | 中身 |
+|---|---|
+| `paper_uid`、`year_openalex`、`source_org`、`is_work_primary` | `raw/papers.csv` から写した列 |
+| `n_author_rows` | その論文の著者の行数（著者の記録が無い論文は0） |
+| `has_unassigned_author` | 誰か決められない著者（`author_id` が欠損）を含むか |
+| `has_unknown_affil` | 所属が不明の著者を含むか |
+| `years_since_org_start`、`in_burn_in` | 組織のデータの始まり（1年間の論文数が初めて3本以上になった年）からの年数と、2年以内か |
+| `n_members_*` | 指標の計算に使った人数（`author_id` が決まった人、重複を除く） |
+| `n_pairs_*` | 2人の組の数 m(m−1)/2 |
+| `repeat_pair_share_*` | それ以前に共著したことのある組の割合 |
+| `known_member_share_*` | チームのほかの誰かと、それ以前に共著したことのある人の割合 |
+| `mean_prior_copapers_*` | 組ごとの、それ以前の共著論文の数の平均 |

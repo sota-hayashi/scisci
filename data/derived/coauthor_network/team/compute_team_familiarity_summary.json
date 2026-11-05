@@ -1,0 +1,102 @@
+{
+  "papers": 917,
+  "papers_without_year": 60,
+  "flags": {
+    "has_unassigned_author": 21,
+    "has_unknown_affil": 20,
+    "in_burn_in": 148
+  },
+  "org_start_year": {
+    "AISIN IMRA(日本・aisin.com)": 2004,
+    "AISIN IMRA(米国・imra.com)": 1993,
+    "トヨタ自動車未来創成センター": 2018,
+    "豊田中央研究所": 2018
+  },
+  "all": {
+    "papers_with_2plus_members": 818,
+    "repeat_pair_share": {
+      "mean": 0.30993141354420467,
+      "median": 0.13333333333333333,
+      "share_zero": 0.37897310513447435
+    },
+    "known_member_share": {
+      "mean": 0.4418536722503394,
+      "median": 0.4365079365079365,
+      "share_zero": 0.37897310513447435
+    },
+    "mean_prior_copapers": {
+      "mean": 1.170948215270053,
+      "median": 0.2,
+      "share_zero": 0.37897310513447435
+    }
+  },
+  "toyota": {
+    "papers_with_2plus_members": 639,
+    "repeat_pair_share": {
+      "mean": 0.3706653023554432,
+      "median": 0.16666666666666666,
+      "share_zero": 0.41471048513302033
+    },
+    "known_member_share": {
+      "mean": 0.4762139008617882,
+      "median": 0.5,
+      "share_zero": 0.41471048513302033
+    },
+    "mean_prior_copapers": {
+      "mean": 1.774705254752203,
+      "median": 0.3333333333333333,
+      "share_zero": 0.41471048513302033
+    }
+  },
+  "all_org": {
+    "papers_with_2plus_members": 818,
+    "repeat_pair_share": {
+      "mean": 0.3068954655204816,
+      "median": 0.10714285714285714,
+      "share_zero": 0.38753056234718825
+    },
+    "known_member_share": {
+      "mean": 0.43664837089589376,
+      "median": 0.4,
+      "share_zero": 0.38753056234718825
+    },
+    "mean_prior_copapers": {
+      "mean": 1.1661425618091428,
+      "median": 0.2,
+      "share_zero": 0.38753056234718825
+    }
+  },
+  "toyota_org": {
+    "papers_with_2plus_members": 639,
+    "repeat_pair_share": {
+      "mean": 0.3664957282328175,
+      "median": 0.16666666666666666,
+      "share_zero": 0.42566510172143973
+    },
+    "known_member_share": {
+      "mean": 0.4692598307621782,
+      "median": 0.5,
+      "share_zero": 0.42566510172143973
+    },
+    "mean_prior_copapers": {
+      "mean": 1.7693358892889408,
+      "median": 0.3333333333333333,
+      "share_zero": 0.42566510172143973
+    }
+  },
+  "params": {
+    "burn_in_years": 2,
+    "min_papers_start": 3,
+    "prior": "papers with strictly earlier year_openalex",
+    "versions": [
+      "all",
+      "toyota",
+      "all_org",
+      "toyota_org"
+    ]
+  },
+  "inputs": {
+    "data/derived/coauthor_network/authors/author_ids.parquet": "c695b46c10aeebb1",
+    "data/raw/papers.csv": "55fefc20b16cdc36"
+  }
+}

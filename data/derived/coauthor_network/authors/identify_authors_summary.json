@@ -1,0 +1,28 @@
+{
+  "rows": 4448,
+  "rows_unassigned": 31,
+  "papers_with_unassigned_author": 21,
+  "authors": 1762,
+  "authors_with_orcid": 501,
+  "authors_by_n_papers": {
+    ">=2": 755,
+    ">=5": 189,
+    ">=10": 62
+  },
+  "orcid_rows_before": 950,
+  "orcid_rows_dropped_as_wrong": 3,
+  "affil_label_rows": {
+    "toyota": 2580,
+    "external": 1810,
+    "unknown": 58
+  },
+  "papers_with_unknown_affil": 20,
+  "params": {
+    "min_given_len": 3,
+    "id_rule": "name_key + first given token; split by ORCID if >=2 ORCIDs"
+  },
+  "inputs": {
+    "data/raw/authorships.csv": "85125816e1ec4c8d",
+    "data/review/orcid_name_mismatches.csv": "53412fd6d9c607bb"
+  }
+}

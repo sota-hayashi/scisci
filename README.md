@@ -8,6 +8,7 @@
 | 解析名 | 内容 | 説明 | 再現の確認 |
 |---|---|---|---|
 | shibayama_novelty | 柴山ら（2021）の方法で論文の新規性 `Novel_q` を計算し、工学中心の標本で働くかを検証する | [src/shibayama_novelty/README.md](src/shibayama_novelty/README.md) | [notebooks/reproduce/reproduce_shibayama_novelty.ipynb](notebooks/reproduce/reproduce_shibayama_novelty.ipynb) |
+| coauthor_network | 共著ネットワークの固定化（くり返しの共著）を数値にし、`Novel_q` との関係を調べる | [src/coauthor_network/README.md](src/coauthor_network/README.md) | [notebooks/reproduce/reproduce_coauthor_network.ipynb](notebooks/reproduce/reproduce_coauthor_network.ipynb) |
 
 ## 構成
 
@@ -29,8 +30,8 @@ docs/                    報告書・メモ（手元のみ。コミットしな�
 | フォルダ | 中身 | 手で編集してよいか |
 |---|---|---|
 | [data/raw/](data/raw/) | 論文・著者・参考文献の3表（伊倉さんの出力を写したもの）と、単語ペアのベンチマーク6種。出どころと取得日は [shibayama_novelty の「データの出どころ」](src/shibayama_novelty/README.md#データの出どころ) | しない |
-| [data/cache/](data/cache/) | scispaCy の語ベクトル表（約600MB、コミットしない。shibayama_novelty の工程2が初回に落とす） | しない |
-| [data/review/](data/review/) | OpenAlex から機関名で引いたトヨタ自動車の著者リスト。確認用で、母集団には使わない（[data/review/README.md](data/review/README.md)） | する |
+| [data/cache/](data/cache/) | scispaCy の語ベクトル表（約600MB、コミットしない。shibayama_novelty の工程2が初回に落とす）と、ORCID の公開記録の名前（`orcid/`） | しない |
+| [data/review/](data/review/) | OpenAlex から機関名で引いたトヨタ自動車の著者リスト（確認用で、母集団には使わない）と、ORCID と名前の照合で見つけた誤り（[data/review/README.md](data/review/README.md)） | する |
 | [data/derived/](data/derived/) | 各解析の工程の出力。`data/derived/<解析名>/<グループ>/` | しない（スクリプトを直して流し直す） |
 
 ## 環境
