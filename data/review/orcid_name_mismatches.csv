@@ -1,0 +1,7 @@
+paper_uid,author_seq,name_raw,orcid,orcid_record_name,status,is_wrong_orcid,note
+2b3bda66c720,2,Masashi Yamashita,https://orcid.org/0000-0002-6674-5094,YAMASHITA,名が合わない,False,記録に名が無く、姓 YAMASHITA だけが名の欄にある。矛盾ではない
+30f2b9606c0f,7,Hisaaki Takao,https://orcid.org/0000-0002-8156-7361,Naoko Takechi Takahashi,不一致,True,記録の持ち主は同じ論文の4番目の著者 Naoko Takahashi（Naoko Takechi Takahashi）
+b07c3c3610d2,6,Philip St. J.Russell,https://orcid.org/0000-0002-8972-2477,Philip Russell,不一致,False,姓を J.Russell と読んだための見かけ上の不一致。記録は Philip Russell で同じ人
+b8c4e453c17b,3,Wataru Yoshimune,https://orcid.org/0000-0002-4830-9205,Yasutaka Nagai,不一致,True,記録の持ち主は同じ論文の6番目の著者 Yasutaka Nagai
+b8c4e453c17b,6,Yasutaka Nagai,https://orcid.org/0000-0001-7750-6809,Takahisa Suzuki,不一致,True,記録の持ち主は同じ論文の7番目の著者 Takahisa Suzuki
+fb60971e4891,6,Eder Luna Cerón,https://orcid.org/0000-0002-6484-4304,Eder Luna,不一致,False,姓を Cerón と読んだための見かけ上の不一致。記録は Eder Luna で同じ人
