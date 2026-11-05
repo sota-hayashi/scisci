@@ -15,6 +15,10 @@
 | `derived/coauthor_network/authors/` | 著者の区別（`author_ids.parquet`、`authorships.csv` と同じ行数）と所属の3値 | coauthor_network の工程1 `identify_authors.py` |
 | `derived/coauthor_network/team/` | 論文ごとのくり返しの組の割合・既知のメンバーの割合（`team_familiarity.parquet`、917行） | coauthor_network の工程2 `compute_team_familiarity.py` |
 | `derived/coauthor_network/regression/` | Novelty とくり返しの組の割合・既知のメンバーの割合の回帰（`novelty_familiarity_regression.json`） | coauthor_network の工程3 `regress_novelty_on_familiarity.py` |
+| `cache/mat2vec/` | mat2vec の配布物（語彙の pickle とベクトルの .npy）、取り出した語彙（`vocab.txt`）、取得の記録（`info.json`）。約470MB | `src/embedding_comparison/fetch_mat2vec.py`（工程に入れない） |
+| `derived/embedding_comparison/title_vectors/<版>/` | タイトルのベクトル（列は shibayama_novelty の `title_vectors/` と同じ） | embedding_comparison の工程1 `embed_titles.py` |
+| `derived/embedding_comparison/scores/` | 版ごとの `Novel_q`（`novelty_<版>.parquet`。列は `novelty_shibayama.parquet` と同じで、`embed_model` が版の名前） | embedding_comparison の工程2 `compute_novelty.py` |
+| `derived/embedding_comparison/comparison/` | 版どうしの比較（`embedding_comparison.json`） | embedding_comparison の工程3 `compare_embeddings.py` |
 | `cache/orcid/` | ORCID の公開記録の名前の項目（1 ORCID 1ファイル、2026-11-05 取得） | `src/coauthor_network/check_orcid_names.py`（工程に入れない） |
 | `review/orcid_name_mismatches.csv` | ORCID と名前が合わない行と、人の判断（`is_wrong_orcid`、`note`）。手で編集してよい | 同上が書き出し、人が判断を書く |
 

@@ -1,0 +1,47 @@
+{
+  "mat2vec_split": {
+    "n_computed": 782,
+    "n_pairs_total": 705418,
+    "skipped_zero_norm": [],
+    "novel_q_mean": {
+      "q100": 0.460398434373119,
+      "q99": 0.4067392191466163,
+      "q95": 0.3445685455561294,
+      "q90": 0.30496919742020806,
+      "q80": 0.2598367126091667,
+      "q50": 0.18861297291258108
+    }
+  },
+  "scispacy_split": {
+    "n_computed": 782,
+    "n_pairs_total": 705753,
+    "skipped_zero_norm": [],
+    "novel_q_mean": {
+      "q100": 0.8449263286102763,
+      "q99": 0.7936972421605873,
+      "q95": 0.7211127772812953,
+      "q90": 0.6732123646589802,
+      "q80": 0.6069829937289742,
+      "q50": 0.45186437159548026
+    }
+  },
+  "params": {
+    "q_values": [
+      100,
+      99,
+      95,
+      90,
+      80,
+      50
+    ],
+    "method": "shibayama_novelty.compute_shibayama_novelty.novelty_table"
+  },
+  "inputs": {
+    "data/derived/shibayama_novelty/input/focal_papers.parquet": "ed61a4841e02cea9",
+    "data/derived/shibayama_novelty/input/reference_titles.parquet": "c0c8c12370ebe2b3",
+    "data/derived/embedding_comparison/title_vectors/mat2vec_split/reference_title_index.parquet": "3cdd0d12301758b6",
+    "data/derived/embedding_comparison/title_vectors/mat2vec_split/reference_title_vectors.npy": "1955c6be50562fdb",
+    "data/derived/embedding_comparison/title_vectors/scispacy_split/reference_title_index.parquet": "b4e5977c7a7bc8ab",
+    "data/derived/embedding_comparison/title_vectors/scispacy_split/reference_title_vectors.npy": "ebaa4ef65ad02704"
+  }
+}

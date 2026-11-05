@@ -1,0 +1,40 @@
+{
+  "mat2vec_split": {
+    "refs": {
+      "n_titles": 20317,
+      "mean_oov_rate": 0.0208,
+      "n_zero_norm": 11
+    },
+    "focal": {
+      "n_papers": 782,
+      "mean_oov_rate": 0.0165,
+      "n_zero_norm": 0
+    }
+  },
+  "scispacy_split": {
+    "refs": {
+      "n_titles": 20317,
+      "mean_oov_rate": 0.0092,
+      "n_zero_norm": 5
+    },
+    "focal": {
+      "n_papers": 782,
+      "mean_oov_rate": 0.0072,
+      "n_zero_norm": 0
+    }
+  },
+  "params": {
+    "token_pattern": "[A-Za-z0-9]+(?:[-'][A-Za-z0-9]+)*",
+    "split_on": "[-']",
+    "num_token_mat2vec": "<nUm>",
+    "lookup": "surface form, then lowercase",
+    "pooling": "unweighted mean of in-vocabulary words",
+    "formula_normalization": false
+  },
+  "inputs": {
+    "data/derived/shibayama_novelty/input/reference_titles.parquet": "c0c8c12370ebe2b3",
+    "data/derived/shibayama_novelty/input/focal_papers.parquet": "ed61a4841e02cea9",
+    "data/cache/mat2vec/vocab.txt": "0fbde055831e2955",
+    "data/cache/mat2vec/pretrained_embeddings.wv.vectors.npy": "11c21e77f046446a"
+  }
+}

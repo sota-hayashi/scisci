@@ -22,6 +22,7 @@
 |---|---|---|
 | `shibayama_novelty` | 柴山ら（2021）の方法で論文の新規性 `Novel_q` を計算し、工学中心の標本で働くかを検証する | 工程1〜13 完了 |
 | `coauthor_network` | 共著ネットワークの固定化を数値にし、`Novel_q` との関係を調べる | 工程1〜3 完了 |
+| `embedding_comparison` | 柴山らの Novelty の語ベクトルを変えたときの違いを見る（mat2vec） | 工程1〜3 完了 |
 
 - 現在の novelty は柴山らの方法による。ほかの手法（例: 参考文献の学術誌の組み合わせによる方法、disruption）を足す可能性がある。
 - 新しい手法は別の解析として足す（`src/<解析名>/`、`data/derived/<解析名>/`、`src/<解析名>/README.md`、`notebooks/reproduce/reproduce_<解析名>.ipynb`）。トップの `README.md` の解析の表にも足す。既存の解析の工程を書き換えて別の手法にしない。
